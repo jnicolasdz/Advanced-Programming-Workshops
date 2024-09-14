@@ -13,11 +13,8 @@ class Menu:
 
         self.shopping_cart = ShoppingCart()
 
-    def back(self, option, index):
-        if (option == 1 and index-1 >= 0):
-            self.display(Constants.MENU_LIST[index-1])
-
-        elif(option == 1):
+    def back(self, option):
+        if (option == 1):
             self.display("Thanks for visiting us")
             sys.exit()
     
@@ -57,48 +54,58 @@ class Menu:
     
 
     def process_cycle(self) -> None:
-
-        index = 0
         categories = [CategoryCamera(), CategoryComponents(), CategoryPeripherials(), CategoryTecnologyDevices(),CategoryTechnologyHome()]
-        option = int(self.get_input(self.display_menu()))
-        while (option != 9):
-            self.back(option, index)
+        self.display_menu()
+
+        while True:
+            option = int(self.get_input(None))
+            self.back(option)
             if (option == 2):
-                index += 1
-                option = int(self.get_input(self.display_categories(categories)))
-                self.back(option, index)
-                for i in range(0, len(categories)):
-                    if (categories[i] == option) :
-                        index += 1
-                        self.display(Constants.MENU_3)
-                        self.display_products(categories[i])
-                        category_selected = categories[i]
+                self.display_categories(categories)
                 option = int(self.get_input(None))
-                self.back(option, index)
-                while option != 1 or option != 3:
+                self.back(option)
+                self.display(Constants.MENU_3)
+                for i in range(1, len(categories)+1):
+                    if (option == i+1):
+                        self.display_products(categories[i-1])
+                        category_selected = categories[i-1]
+                while option != 1 and option != 2:
                     option = int(self.get_input(None))
-                    self.back(option, index)
-                    for i in range(1, len(category_selected)+1):
-                        if(option == i+2):
-                            self.shopping_cart.add_product(category_selected.product_list[i+2])
+                    for i in range(3, len(categories)+3):
+                        if(option == i):
+                            self.shopping_cart.add_product(category_selected.products_list[i-4])
+                            self.display(f"Added to shopping cart {category_selected.products_list[i-4].name}")
+                            category_selected.products_list[i-4].amount -= 1
+                            self.display(Constants.MENU_3)
+                            self.display_products(category_selected)
                 if(option == 3):
                     self.display(Constants.MENU_4)
-                    index += 1
                     self.display(self.shopping_cart.products_list)
                     option = int(self.get_input(None))
-                    self.back(option, index)
+                    self.back(option)
                     if(option == 2):
                         self.display(Constants.MENU_4)
                         option = int(self.get_input(None))
-                        index += 1
-                        self.back(option,index)
+                        self.back(option)
                         if(option == 2):
                             name = self.get_input(f"Insert your name")
                             direction = self.get_input(f"Inser your directions")
                             self.display(self.shopping_cart.make_check_out(name, direction))
                             option = int(self.get_input(None))
-                            self.back(option, index)
-                  
+                            self.back(option)
+
+
+
+
+                        
+
+                            
+
+               
+                    
+            
+
+
 
 
                     

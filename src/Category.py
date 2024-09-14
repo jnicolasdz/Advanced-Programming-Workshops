@@ -2,8 +2,6 @@ from abc import ABC, abstractmethod
 
 from Product import *
 
-
-
 class Category(ABC):
 
     def __init__(self, name, productlist) -> None:
