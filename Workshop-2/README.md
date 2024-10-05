@@ -3,7 +3,7 @@
 On this folder there is improves of User stories, UML Diagrams
 and rebuild of Code
 
-Added User stories:
+Refine User stories:
 As a computer science student, I want to see specification of product before to buy it like availability, components and price
 
 As a computer science student, I want search filters like price range
