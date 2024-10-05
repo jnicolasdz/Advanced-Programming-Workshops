@@ -1,5 +1,5 @@
 """
-This module is mother class to every product in the program.
+This is a class to create passive object that storage user data.
 
 Copyright (C) 2024  Nicolás Diaz Salamanca <jndiasz@udistrital.edu.co>
 
@@ -16,19 +16,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+class User:
+    """This is an abstract class to define any kind of users"""
 
+    def __init__(self, name : str, lastname : str, address : str, credit_card : str, country : str) -> None:
 
-class Product():
-    """This is the generic class for the products"""
-    def __init__(self, name, amount) -> None:
         self.name = name
-        self.amount = amount
-        self.data = f"Product: {self.name} \nAvailables: {self.amount}\n"
-
-
-    def show_data(self) -> str :
-        """This method returns the data of the product
-        Returns:
-            str: data of the product
-        """
-        return self.data
+        self.lastname = lastname
+        self.address = address
+        self.credit_card = credit_card
+        self.country = country
+    
