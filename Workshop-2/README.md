@@ -13,4 +13,13 @@ cheaper to higest
 
 As a computer science student, I want more domestic electrocnic devices options like coffe maker, fridge and steam iron.
 
+As a computer science students, we want be able to buy microcontrollers, graphical drawing tablets, pickit's and rasperry pi for our academic projects
+
+As a computer science students, we want baffles and Tv to entrain us
+
+As a computer science students we wantk kyboards, table to take notes, multiple charger and smartwatch to improve our productivity
+
+As a computer science student, I want to buy a computer without OS pre-installed
+so that I can work in a personalized computer within the purchase
+
 The UML are based on this new user stories but It doesn't implemented in code. The update code is for repair the missing functions of the las workshop
